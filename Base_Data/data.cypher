@@ -594,9 +594,23 @@ CREATE (a)-[x:HAS_ZEPPELIN_PATH]->(b),
        (a)<-[y:HAS_ZEPPELIN_PATH]-(b);
 
 // Boat Paths
-// TODO Finish this up
 MATCH (a:Zone), (b:Zone)
 WHERE a.name = "The Barrens" AND b.name = "Stranglethorn Vale"
+CREATE (a)-[x:HAS_BOAT_PATH]->(b),
+       (a)<-[y:HAS_BOAT_PATH]-(b);
+
+MATCH (a:Zone), (b:Zone)
+WHERE a.name = "Dustwallow Marsh" AND b.name = "Wetlands"
+CREATE (a)-[x:HAS_BOAT_PATH]->(b),
+       (a)<-[y:HAS_BOAT_PATH]-(b);
+
+MATCH (a:Zone), (b:Zone)
+WHERE a.name = "Darkshore" AND b.name = "Wetlands"
+CREATE (a)-[x:HAS_BOAT_PATH]->(b),
+       (a)<-[y:HAS_BOAT_PATH]-(b);
+
+MATCH (a:Zone), (b:Zone)
+WHERE a.name = "Teldrassil" AND b.name = "Darkshore"
 CREATE (a)-[x:HAS_BOAT_PATH]->(b),
        (a)<-[y:HAS_BOAT_PATH]-(b);
 
