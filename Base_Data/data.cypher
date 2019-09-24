@@ -166,3 +166,439 @@ CREATE (z)-[rel:IS_INSIDE]->(c);
 MATCH (z:Zone), (c:Continent)
 WHERE z.name = "Stranglethorn Vale" AND c.name = "Eastern Kingdoms"
 CREATE (z)-[rel:IS_INSIDE]->(c);
+
+// Areas
+CREATE (:Area { name: "Darnassus",              is_capital_city: true}),
+       (:Area { name: "Everlook",               is_capital_city: false}),
+       (:Area { name: "Auberdine",              is_capital_city: false}),
+       (:Area { name: "Astranaar",              is_capital_city: false}),
+       (:Area { name: "Splintertree Post",      is_capital_city: false}),
+       (:Area { name: "Stonetalon Peak",        is_capital_city: false}),
+       (:Area { name: "Sun Rock Retreat",       is_capital_city: false}),
+       (:Area { name: "Orgrimmar",              is_capital_city: true}),
+       (:Area { name: "Thunder Bluff",          is_capital_city: true}),
+       (:Area { name: "Nijel's Point",          is_capital_city: false}),
+       (:Area { name: "Shadowprey Village",     is_capital_city: false}),
+       (:Area { name: "The Crossroads",         is_capital_city: false}),
+       (:Area { name: "Ratchet",                is_capital_city: false}),
+       (:Area { name: "Camp Taurajo",           is_capital_city: false}),
+       (:Area { name: "Theramore Isle",         is_capital_city: false}),
+       (:Area { name: "Feathermoon Stronghold", is_capital_city: false}),
+       (:Area { name: "Camp Mojache",           is_capital_city: false}),
+       (:Area { name: "Thalanaar",              is_capital_city: false}),
+       (:Area { name: "Freewind Post",          is_capital_city: false}),
+       (:Area { name: "Gadgetzan",              is_capital_city: false}),
+
+       (:Area { name: "The Undercity",      is_capital_city: true}),
+       (:Area { name: "The Sepulcher",      is_capital_city: false}),
+       (:Area { name: "Tarren Mill",        is_capital_city: false}),
+       (:Area { name: "Southshore",         is_capital_city: false}),
+       (:Area { name: "Aerie Peak",         is_capital_city: false}),
+       (:Area { name: "Hammerfall",         is_capital_city: false}),
+       (:Area { name: "Menethil Harbor",    is_capital_city: false}),
+       (:Area { name: "Ironforge",          is_capital_city: true}),
+       (:Area { name: "Thelsamar",          is_capital_city: false}),
+       (:Area { name: "Kargath",            is_capital_city: false}),
+       (:Area { name: "Lakeshire",          is_capital_city: false}),
+       (:Area { name: "Stormwind",          is_capital_city: true}),
+       (:Area { name: "Stonard",            is_capital_city: false}),
+       (:Area { name: "Darkshire",          is_capital_city: false}),
+       (:Area { name: "Sentinel Hill",      is_capital_city: false}),
+       (:Area { name: "Grom'gol Base Camp", is_capital_city: false}),
+       (:Area { name: "Booty Bay",          is_capital_city: false});
+
+// Area-Zone relationships
+MATCH (a:Area), (z:Zone)
+WHERE a.name = "Darnassus" AND z.name = "Teldrassil"
+CREATE (a)-[rel:IS_INSIDE]->(z);
+MATCH (a:Area), (z:Zone)
+WHERE a.name = "Everlook" AND z.name = "Winterspring"
+CREATE (a)-[rel:IS_INSIDE]->(z);
+MATCH (a:Area), (z:Zone)
+WHERE a.name = "Auberdine" AND z.name = "Darkshore"
+CREATE (a)-[rel:IS_INSIDE]->(z);
+MATCH (a:Area), (z:Zone)
+WHERE a.name = "Astranaar" AND z.name = "Ashenvale"
+CREATE (a)-[rel:IS_INSIDE]->(z);
+MATCH (a:Area), (z:Zone)
+WHERE a.name = "Splintertree Post" AND z.name = "Ashenvale"
+CREATE (a)-[rel:IS_INSIDE]->(z);
+MATCH (a:Area), (z:Zone)
+WHERE a.name = "Stonetalon Peak" AND z.name = "Stonetalon Mountains"
+CREATE (a)-[rel:IS_INSIDE]->(z);
+MATCH (a:Area), (z:Zone)
+WHERE a.name = "Sun Rock Retreat" AND z.name = "Stonetalon Mountains"
+CREATE (a)-[rel:IS_INSIDE]->(z);
+MATCH (a:Area), (z:Zone)
+WHERE a.name = "Orgrimmar" AND z.name = "Durotar"
+CREATE (a)-[rel:IS_INSIDE]->(z);
+MATCH (a:Area), (z:Zone)
+WHERE a.name = "Thunder Bluff" AND z.name = "Mulgore"
+CREATE (a)-[rel:IS_INSIDE]->(z);
+MATCH (a:Area), (z:Zone)
+WHERE a.name = "Nijel's Point" AND z.name = "Desolace"
+CREATE (a)-[rel:IS_INSIDE]->(z);
+MATCH (a:Area), (z:Zone)
+WHERE a.name = "Shadowprey Village" AND z.name = "Desolace"
+CREATE (a)-[rel:IS_INSIDE]->(z);
+MATCH (a:Area), (z:Zone)
+WHERE a.name = "The Crossroads" AND z.name = "The Barrens"
+CREATE (a)-[rel:IS_INSIDE]->(z);
+MATCH (a:Area), (z:Zone)
+WHERE a.name = "Ratchet" AND z.name = "The Barrens"
+CREATE (a)-[rel:IS_INSIDE]->(z);
+MATCH (a:Area), (z:Zone)
+WHERE a.name = "Camp Taurajo" AND z.name = "The Barrens"
+CREATE (a)-[rel:IS_INSIDE]->(z);
+MATCH (a:Area), (z:Zone)
+WHERE a.name = "Theramore Isle" AND z.name = "Dustwallow Marsh"
+CREATE (a)-[rel:IS_INSIDE]->(z);
+MATCH (a:Area), (z:Zone)
+WHERE a.name = "Feathermoon Stronghold" AND z.name = "Feralas"
+CREATE (a)-[rel:IS_INSIDE]->(z);
+MATCH (a:Area), (z:Zone)
+WHERE a.name = "Camp Mojache" AND z.name = "Feralas"
+CREATE (a)-[rel:IS_INSIDE]->(z);
+MATCH (a:Area), (z:Zone)
+WHERE a.name = "Thalanaar" AND z.name = "Un'Goro Crater"
+CREATE (a)-[rel:IS_INSIDE]->(z);
+MATCH (a:Area), (z:Zone)
+WHERE a.name = "Freewind Post" AND z.name = "Un'Goro Crater"
+CREATE (a)-[rel:IS_INSIDE]->(z);
+MATCH (a:Area), (z:Zone)
+WHERE a.name = "Gadgetzan" AND z.name = "Tanaris"
+CREATE (a)-[rel:IS_INSIDE]->(z);
+MATCH (a:Area), (z:Zone)
+WHERE a.name = "The Undercity" AND z.name = "Tirisfal Glades"
+CREATE (a)-[rel:IS_INSIDE]->(z);
+MATCH (a:Area), (z:Zone)
+WHERE a.name = "The Sepulcher" AND z.name = "Silverpine Forest"
+CREATE (a)-[rel:IS_INSIDE]->(z);
+MATCH (a:Area), (z:Zone)
+WHERE a.name = "Tarren Mill" AND z.name = "Hillsbrad Foothills"
+CREATE (a)-[rel:IS_INSIDE]->(z);
+MATCH (a:Area), (z:Zone)
+WHERE a.name = "Southshore" AND z.name = "Hillsbrad Foothills"
+CREATE (a)-[rel:IS_INSIDE]->(z);
+MATCH (a:Area), (z:Zone)
+WHERE a.name = "Aerie Peak" AND z.name = "The Hinterlands"
+CREATE (a)-[rel:IS_INSIDE]->(z);
+MATCH (a:Area), (z:Zone)
+WHERE a.name = "Hammerfall" AND z.name = "Arathi Highlands"
+CREATE (a)-[rel:IS_INSIDE]->(z);
+MATCH (a:Area), (z:Zone)
+WHERE a.name = "Menethil Harbor" AND z.name = "Wetlands"
+CREATE (a)-[rel:IS_INSIDE]->(z);
+MATCH (a:Area), (z:Zone)
+WHERE a.name = "Ironforge" AND z.name = "Dun Morogh"
+CREATE (a)-[rel:IS_INSIDE]->(z);
+MATCH (a:Area), (z:Zone)
+WHERE a.name = "Thelsamar" AND z.name = "Loch Modan"
+CREATE (a)-[rel:IS_INSIDE]->(z);
+MATCH (a:Area), (z:Zone)
+WHERE a.name = "Kargath" AND z.name = "Badlands"
+CREATE (a)-[rel:IS_INSIDE]->(z);
+MATCH (a:Area), (z:Zone)
+WHERE a.name = "Lakeshire" AND z.name = "Redridge Mountains"
+CREATE (a)-[rel:IS_INSIDE]->(z);
+MATCH (a:Area), (z:Zone)
+WHERE a.name = "Stormwind" AND z.name = "Elwynn Forest"
+CREATE (a)-[rel:IS_INSIDE]->(z);
+MATCH (a:Area), (z:Zone)
+WHERE a.name = "Stonard" AND z.name = "Swamp of Sorrows"
+CREATE (a)-[rel:IS_INSIDE]->(z);
+MATCH (a:Area), (z:Zone)
+WHERE a.name = "Darkshire" AND z.name = "Duskwood"
+CREATE (a)-[rel:IS_INSIDE]->(z);
+MATCH (a:Area), (z:Zone)
+WHERE a.name = "Sentinel Hill" AND z.name = "Westfall"
+CREATE (a)-[rel:IS_INSIDE]->(z);
+MATCH (a:Area), (z:Zone)
+WHERE a.name = "Grom'gol Base Camp" AND z.name = "Stranglethorn Vale"
+CREATE (a)-[rel:IS_INSIDE]->(z);
+MATCH (a:Area), (z:Zone)
+WHERE a.name = "Booty Bay" AND z.name = "Stranglethorn Vale"
+CREATE (a)-[rel:IS_INSIDE]->(z);
+
+
+
+
+// Zone Adjacencies
+MATCH (a:Zone), (b:Zone)
+WHERE a.name = "Moonglade" AND b.name = "Darkshore"
+CREATE (a)-[adj:IS_ADJACENT_TO]->(b),
+       (a)<-[rel:IS_ADJACENT_TO]-(b);
+MATCH (a:Zone), (b:Zone)
+WHERE a.name = "Moonglade" AND b.name = "Felwood"
+CREATE (a)-[adj:IS_ADJACENT_TO]->(b),
+       (a)<-[rel:IS_ADJACENT_TO]-(b);
+MATCH (a:Zone), (b:Zone)
+WHERE a.name = "Moonglade" AND b.name = "Winterspring"
+CREATE (a)-[adj:IS_ADJACENT_TO]->(b),
+       (a)<-[rel:IS_ADJACENT_TO]-(b);
+MATCH (a:Zone), (b:Zone)
+WHERE a.name = "Darkshore" AND b.name = "Felwood"
+CREATE (a)-[adj:IS_ADJACENT_TO]->(b),
+       (a)<-[rel:IS_ADJACENT_TO]-(b);
+MATCH (a:Zone), (b:Zone)
+WHERE a.name = "Felwood" AND b.name = "Winterspring"
+CREATE (a)-[adj:IS_ADJACENT_TO]->(b),
+       (a)<-[rel:IS_ADJACENT_TO]-(b);
+MATCH (a:Zone), (b:Zone)
+WHERE a.name = "Darkshore" AND b.name = "Ashenvale"
+CREATE (a)-[adj:IS_ADJACENT_TO]->(b),
+       (a)<-[rel:IS_ADJACENT_TO]-(b);
+MATCH (a:Zone), (b:Zone)
+WHERE a.name = "Felwood" AND b.name = "Ashenvale"
+CREATE (a)-[adj:IS_ADJACENT_TO]->(b),
+       (a)<-[rel:IS_ADJACENT_TO]-(b);
+MATCH (a:Zone), (b:Zone)
+WHERE a.name = "Azshare" AND b.name = "Winterspring"
+CREATE (a)-[adj:IS_ADJACENT_TO]->(b),
+       (a)<-[rel:IS_ADJACENT_TO]-(b);
+MATCH (a:Zone), (b:Zone)
+WHERE a.name = "Ashenvale" AND b.name = "Azshara"
+CREATE (a)-[adj:IS_ADJACENT_TO]->(b),
+       (a)<-[rel:IS_ADJACENT_TO]-(b);
+MATCH (a:Zone), (b:Zone)
+WHERE a.name = "Ashenvale" AND b.name = "Stonetalon Mountains"
+CREATE (a)-[adj:IS_ADJACENT_TO]->(b),
+       (a)<-[rel:IS_ADJACENT_TO]-(b);
+MATCH (a:Zone), (b:Zone)
+WHERE a.name = "Ashenvale" AND b.name = "The Barrens"
+CREATE (a)-[adj:IS_ADJACENT_TO]->(b),
+       (a)<-[rel:IS_ADJACENT_TO]-(b);
+MATCH (a:Zone), (b:Zone)
+WHERE a.name = "Azshara" AND b.name = "Durotar"
+CREATE (a)-[adj:IS_ADJACENT_TO]->(b),
+       (a)<-[rel:IS_ADJACENT_TO]-(b);
+MATCH (a:Zone), (b:Zone)
+WHERE a.name = "Stonetalon Mountains" AND b.name = "The Barrens"
+CREATE (a)-[adj:IS_ADJACENT_TO]->(b),
+       (a)<-[rel:IS_ADJACENT_TO]-(b);
+MATCH (a:Zone), (b:Zone)
+WHERE a.name = "Stonetalon Mountains" AND b.name = "Desolace"
+CREATE (a)-[adj:IS_ADJACENT_TO]->(b),
+       (a)<-[rel:IS_ADJACENT_TO]-(b);
+MATCH (a:Zone), (b:Zone)
+WHERE a.name = "Stonetalon Mountains" AND b.name = "Mulgore"
+CREATE (a)-[adj:IS_ADJACENT_TO]->(b),
+       (a)<-[rel:IS_ADJACENT_TO]-(b);
+MATCH (a:Zone), (b:Zone)
+WHERE a.name = "The Barrens" AND b.name = "Mulgore"
+CREATE (a)-[adj:IS_ADJACENT_TO]->(b),
+       (a)<-[rel:IS_ADJACENT_TO]-(b);
+MATCH (a:Zone), (b:Zone)
+WHERE a.name = "The Barrens" AND b.name = "Durotar"
+CREATE (a)-[adj:IS_ADJACENT_TO]->(b),
+       (a)<-[rel:IS_ADJACENT_TO]-(b);
+MATCH (a:Zone), (b:Zone)
+WHERE a.name = "The Barrens" AND b.name = "Dustwallow Marsh"
+CREATE (a)-[adj:IS_ADJACENT_TO]->(b),
+       (a)<-[rel:IS_ADJACENT_TO]-(b);
+MATCH (a:Zone), (b:Zone)
+WHERE a.name = "The Barrens" AND b.name = "Thousand Needles"
+CREATE (a)-[adj:IS_ADJACENT_TO]->(b),
+       (a)<-[rel:IS_ADJACENT_TO]-(b);
+MATCH (a:Zone), (b:Zone)
+WHERE a.name = "Desolace" AND b.name = "Mulgore"
+CREATE (a)-[adj:IS_ADJACENT_TO]->(b),
+       (a)<-[rel:IS_ADJACENT_TO]-(b);
+MATCH (a:Zone), (b:Zone)
+WHERE a.name = "Desolace" AND b.name = "Feralas"
+CREATE (a)-[adj:IS_ADJACENT_TO]->(b),
+       (a)<-[rel:IS_ADJACENT_TO]-(b);
+MATCH (a:Zone), (b:Zone)
+WHERE a.name = "Feralas" AND b.name = "Mulgore"
+CREATE (a)-[adj:IS_ADJACENT_TO]->(b),
+       (a)<-[rel:IS_ADJACENT_TO]-(b);
+MATCH (a:Zone), (b:Zone)
+WHERE a.name = "Feralas" AND b.name = "Thousand Needles"
+CREATE (a)-[adj:IS_ADJACENT_TO]->(b),
+       (a)<-[rel:IS_ADJACENT_TO]-(b);
+MATCH (a:Zone), (b:Zone)
+WHERE a.name = "Dustwallow" AND b.name = "Thousand Needles"
+CREATE (a)-[adj:IS_ADJACENT_TO]->(b),
+       (a)<-[rel:IS_ADJACENT_TO]-(b);
+MATCH (a:Zone), (b:Zone)
+WHERE a.name = "Feralas" AND b.name = "Silithus"
+CREATE (a)-[adj:IS_ADJACENT_TO]->(b),
+       (a)<-[rel:IS_ADJACENT_TO]-(b);
+MATCH (a:Zone), (b:Zone)
+WHERE a.name = "Thousand Needles" AND b.name = "Un'Goro Crater        '"
+CREATE (a)-[adj:IS_ADJACENT_TO]->(b),
+       (a)<-[rel:IS_ADJACENT_TO]-(b);
+MATCH (a:Zone), (b:Zone)
+WHERE a.name = "Thousand Needles" AND b.name = "Tanaris"
+CREATE (a)-[adj:IS_ADJACENT_TO]->(b),
+       (a)<-[rel:IS_ADJACENT_TO]-(b);
+MATCH (a:Zone), (b:Zone)
+WHERE a.name = "Silithus" AND b.name = "Un'Goro Crater"
+CREATE (a)-[adj:IS_ADJACENT_TO]->(b),
+       (a)<-[rel:IS_ADJACENT_TO]-(b);
+MATCH (a:Zone), (b:Zone)
+WHERE a.name = "Un'Goro Crater" AND b.name = "Tanaris"
+CREATE (a)-[adj:IS_ADJACENT_TO]->(b),
+       (a)<-[rel:IS_ADJACENT_TO]-(b);
+MATCH (a:Zone), (b:Zone)
+WHERE a.name = "Stranglethorn Vale" AND b.name = "Westfall"
+CREATE (a)-[adj:IS_ADJACENT_TO]->(b),
+       (a)<-[rel:IS_ADJACENT_TO]-(b);
+MATCH (a:Zone), (b:Zone)
+WHERE a.name = "Stranglethorn Vale" AND b.name = "Duskwood"
+CREATE (a)-[adj:IS_ADJACENT_TO]->(b),
+       (a)<-[rel:IS_ADJACENT_TO]-(b);
+MATCH (a:Zone), (b:Zone)
+WHERE a.name = "Stranglethorn Vale" AND b.name = "Deadwind Pass"
+CREATE (a)-[adj:IS_ADJACENT_TO]->(b),
+       (a)<-[rel:IS_ADJACENT_TO]-(b);
+MATCH (a:Zone), (b:Zone)
+WHERE a.name = "Stranglethorn Vale" AND b.name = "Blasted Lands"
+CREATE (a)-[adj:IS_ADJACENT_TO]->(b),
+       (a)<-[rel:IS_ADJACENT_TO]-(b);
+MATCH (a:Zone), (b:Zone)
+WHERE a.name = "Blasted Lands" AND b.name = "Swamp of Sorrows"
+CREATE (a)-[adj:IS_ADJACENT_TO]->(b),
+       (a)<-[rel:IS_ADJACENT_TO]-(b);
+MATCH (a:Zone), (b:Zone)
+WHERE a.name = "Blasted Lands" AND b.name = "Deadwind Pass"
+CREATE (a)-[adj:IS_ADJACENT_TO]->(b),
+       (a)<-[rel:IS_ADJACENT_TO]-(b);
+MATCH (a:Zone), (b:Zone)
+WHERE a.name = "Deadwind Pass" AND b.name = "Redridge Mountains"
+CREATE (a)-[adj:IS_ADJACENT_TO]->(b),
+       (a)<-[rel:IS_ADJACENT_TO]-(b);
+MATCH (a:Zone), (b:Zone)
+WHERE a.name = "Deadwind Pass" AND b.name = "Duskwood"
+CREATE (a)-[adj:IS_ADJACENT_TO]->(b),
+       (a)<-[rel:IS_ADJACENT_TO]-(b);
+MATCH (a:Zone), (b:Zone)
+WHERE a.name = "Duskwood" AND b.name = "Westfall"
+CREATE (a)-[adj:IS_ADJACENT_TO]->(b),
+       (a)<-[rel:IS_ADJACENT_TO]-(b);
+MATCH (a:Zone), (b:Zone)
+WHERE a.name = "Duskwood" AND b.name = "Elwynn Forest"
+CREATE (a)-[adj:IS_ADJACENT_TO]->(b),
+       (a)<-[rel:IS_ADJACENT_TO]-(b);
+MATCH (a:Zone), (b:Zone)
+WHERE a.name = "Westfall" AND b.name = "Elwynn Forest"
+CREATE (a)-[adj:IS_ADJACENT_TO]->(b),
+       (a)<-[rel:IS_ADJACENT_TO]-(b);
+MATCH (a:Zone), (b:Zone)
+WHERE a.name = "Elwynn Forest" AND b.name = "Redridge Mountains"
+CREATE (a)-[adj:IS_ADJACENT_TO]->(b),
+       (a)<-[rel:IS_ADJACENT_TO]-(b);
+MATCH (a:Zone), (b:Zone)
+WHERE a.name = "Elwynn Forest" AND b.name = "Burning Steppes"
+CREATE (a)-[adj:IS_ADJACENT_TO]->(b),
+       (a)<-[rel:IS_ADJACENT_TO]-(b);
+MATCH (a:Zone), (b:Zone)
+WHERE a.name = "Redridge Mountains" AND b.name = "Burning Steppes"
+CREATE (a)-[adj:IS_ADJACENT_TO]->(b),
+       (a)<-[rel:IS_ADJACENT_TO]-(b);
+MATCH (a:Zone), (b:Zone)
+WHERE a.name = "Burning Steppes" AND b.name = "Searing Gorge"
+CREATE (a)-[adj:IS_ADJACENT_TO]->(b),
+       (a)<-[rel:IS_ADJACENT_TO]-(b);
+MATCH (a:Zone), (b:Zone)
+WHERE a.name = "Burning Steppes" AND b.name = "Badlands"
+CREATE (a)-[adj:IS_ADJACENT_TO]->(b),
+       (a)<-[rel:IS_ADJACENT_TO]-(b);
+MATCH (a:Zone), (b:Zone)
+WHERE a.name = "Searing Gorge" AND b.name = "Badlands"
+CREATE (a)-[adj:IS_ADJACENT_TO]->(b),
+       (a)<-[rel:IS_ADJACENT_TO]-(b);
+MATCH (a:Zone), (b:Zone)
+WHERE a.name = "Searing Gorge" AND b.name = "Dun Morogh"
+CREATE (a)-[adj:IS_ADJACENT_TO]->(b),
+       (a)<-[rel:IS_ADJACENT_TO]-(b);
+MATCH (a:Zone), (b:Zone)
+WHERE a.name = "Badlands" AND b.name = "Loch Modan"
+CREATE (a)-[adj:IS_ADJACENT_TO]->(b),
+       (a)<-[rel:IS_ADJACENT_TO]-(b);
+MATCH (a:Zone), (b:Zone)
+WHERE a.name = "Loch Modan" AND b.name = "Dun Morogh"
+CREATE (a)-[adj:IS_ADJACENT_TO]->(b),
+       (a)<-[rel:IS_ADJACENT_TO]-(b);
+MATCH (a:Zone), (b:Zone)
+WHERE a.name = "Dun Morogh" AND b.name = "Wetlands"
+CREATE (a)-[adj:IS_ADJACENT_TO]->(b),
+       (a)<-[rel:IS_ADJACENT_TO]-(b);
+MATCH (a:Zone), (b:Zone)
+WHERE a.name = "Loch Modan" AND b.name = "Wetlands"
+CREATE (a)-[adj:IS_ADJACENT_TO]->(b),
+       (a)<-[rel:IS_ADJACENT_TO]-(b);
+MATCH (a:Zone), (b:Zone)
+WHERE a.name = "Wetlands" AND b.name = "Arathi Highlands"
+CREATE (a)-[adj:IS_ADJACENT_TO]->(b),
+       (a)<-[rel:IS_ADJACENT_TO]-(b);
+MATCH (a:Zone), (b:Zone)
+WHERE a.name = "Arathi Highlands" AND b.name = "Hillsbrad Foothills"
+CREATE (a)-[adj:IS_ADJACENT_TO]->(b),
+       (a)<-[rel:IS_ADJACENT_TO]-(b);
+MATCH (a:Zone), (b:Zone)
+WHERE a.name = "Arathi Highlands" AND b.name = "The Hinterlands"
+CREATE (a)-[adj:IS_ADJACENT_TO]->(b),
+       (a)<-[rel:IS_ADJACENT_TO]-(b);
+MATCH (a:Zone), (b:Zone)
+WHERE a.name = "Hillsbrad Foothills" AND b.name = "Silverpine Forest"
+CREATE (a)-[adj:IS_ADJACENT_TO]->(b),
+       (a)<-[rel:IS_ADJACENT_TO]-(b);
+MATCH (a:Zone), (b:Zone)
+WHERE a.name = "Hillsbrad Foothills" AND b.name = "The Hinterlands"
+CREATE (a)-[adj:IS_ADJACENT_TO]->(b),
+       (a)<-[rel:IS_ADJACENT_TO]-(b);
+MATCH (a:Zone), (b:Zone)
+WHERE a.name = "Hillsbrad Foothills" AND b.name = "Alterac Mountains"
+CREATE (a)-[adj:IS_ADJACENT_TO]->(b),
+       (a)<-[rel:IS_ADJACENT_TO]-(b);
+MATCH (a:Zone), (b:Zone)
+WHERE a.name = "The Hinterlands" AND b.name = "Eastern Plaguelands"
+CREATE (a)-[adj:IS_ADJACENT_TO]->(b),
+       (a)<-[rel:IS_ADJACENT_TO]-(b);
+MATCH (a:Zone), (b:Zone)
+WHERE a.name = "Silverpine Forest" AND b.name = "Alterac Mountains"
+CREATE (a)-[adj:IS_ADJACENT_TO]->(b),
+       (a)<-[rel:IS_ADJACENT_TO]-(b);
+MATCH (a:Zone), (b:Zone)
+WHERE a.name = "Silverpine Forest" AND b.name = "Tirisfal Glades"
+CREATE (a)-[adj:IS_ADJACENT_TO]->(b),
+       (a)<-[rel:IS_ADJACENT_TO]-(b);
+MATCH (a:Zone), (b:Zone)
+WHERE a.name = "Alterac Mountains" AND b.name = "Tirisfal Glades"
+CREATE (a)-[adj:IS_ADJACENT_TO]->(b),
+       (a)<-[rel:IS_ADJACENT_TO]-(b);
+MATCH (a:Zone), (b:Zone)
+WHERE a.name = "Alterac Mountains" AND b.name = "Western Plaguelands"
+CREATE (a)-[adj:IS_ADJACENT_TO]->(b),
+       (a)<-[rel:IS_ADJACENT_TO]-(b);
+MATCH (a:Zone), (b:Zone)
+WHERE a.name = "Tirisfal Glades" AND b.name = "Western Plaguelands"
+CREATE (a)-[adj:IS_ADJACENT_TO]->(b),
+       (a)<-[rel:IS_ADJACENT_TO]-(b);
+MATCH (a:Zone), (b:Zone)
+WHERE a.name = "Western Plaguelands" AND b.name = "Eastern Plaguelands"
+CREATE (a)-[adj:IS_ADJACENT_TO]->(b),
+       (a)<-[rel:IS_ADJACENT_TO]-(b);
+
+// Zeppelin Paths
+// TODO Finish this up
+MATCH (a:Zone), (b:Zone)
+WHERE a.name = "Durotar" AND b.name = "Tirisfal Glades"
+CREATE (a)-[x:HAS_ZEPPELIN_PATH]->(b),
+       (a)<-[y:HAS_ZEPPELIN_PATH]-(b);
+
+MATCH (a:Zone), (b:Zone)
+WHERE a.name = "Durotar" AND b.name = "Stranglethorn Vale"
+CREATE (a)-[x:HAS_ZEPPELIN_PATH]->(b),
+       (a)<-[y:HAS_ZEPPELIN_PATH]-(b);
+
+// Boat Paths
+// TODO Finish this up
+MATCH (a:Zone), (b:Zone)
+WHERE a.name = "The Barrens" AND b.name = "Stranglethorn Vale"
+CREATE (a)-[x:HAS_BOAT_PATH]->(b),
+       (a)<-[y:HAS_BOAT_PATH]-(b);
+
+// TODO Add flight path nodes
+// TODO Add flight path network
