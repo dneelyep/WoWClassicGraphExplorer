@@ -42,7 +42,8 @@ CREATE (:Zone { name: "Teldrassil"}),
        (:Zone { name: "Westfall"}),
        (:Zone { name: "Deadwind Pass"}),
        (:Zone { name: "Blasted Lands"}),
-       (:Zone { name: "Stranglethorn Vale"});
+       (:Zone { name: "Stranglethorn Vale"}),
+       (:Zone { name: "Blackrock Mountain"});
 
 // Zone-Continent relationships
 MATCH (z:Zone), (c:Continent)
@@ -616,3 +617,122 @@ CREATE (a)-[x:HAS_BOAT_PATH]->(b),
 
 // TODO Add flight path nodes
 // TODO Add flight path network
+
+// Dungeons
+CREATE (:Dungeon { name: "Ragefire Chasm" }),
+       (:Dungeon { name: "Wailing Caverns" }),
+       (:Dungeon { name: "The Deadmines" }),
+       (:Dungeon { name: "Shadowfang Keep" }),
+       (:Dungeon { name: "The Stockade" }),
+       (:Dungeon { name: "Blackfathom Deeps" }),
+       (:Dungeon { name: "Gnomeregan" }),
+       (:Dungeon { name: "Razorfen Kraul" }),
+       (:Dungeon { name: "Scarlet Monestary" }),
+       (:Dungeon { name: "Razorfen Downs" }),
+       (:Dungeon { name: "Uldaman" }),
+       (:Dungeon { name: "Zul'Farrak" }),
+       (:Dungeon { name: "Mauradon" }),
+       (:Dungeon { name: "Sunken Temple" }),
+       (:Dungeon { name: "Blackrock Depths" }),
+       (:Dungeon { name: "Upper Blackrock Spire" }),
+       (:Dungeon { name: "Lower Blackrock Spire" }),
+       (:Dungeon { name: "Scholomance" }),
+       (:Dungeon { name: "Stratholme" }),
+       (:Dungeon { name: "Dire Maul" });
+
+// Dungeon-Zone relationships
+// TODO This should eventually be converted to Dungeon-Area.
+MATCH (d:Dungeon), (z:Zone)
+WHERE d.name = "Ragefire Chasm" AND z.name = "Durotar"
+CREATE (d)-[rel:IS_INSIDE]->(z);
+MATCH (d:Dungeon), (z:Zone)
+WHERE d.name = "Wailing Caverns" AND z.name = "The Barrens"
+CREATE (d)-[rel:IS_INSIDE]->(z);
+MATCH (d:Dungeon), (z:Zone)
+WHERE d.name = "The Deadmines" AND z.name = "Westfall"
+CREATE (d)-[rel:IS_INSIDE]->(z);
+MATCH (d:Dungeon), (z:Zone)
+WHERE d.name = "Shadowfang Keep" AND z.name = "Silverpine Forest"
+CREATE (d)-[rel:IS_INSIDE]->(z);
+MATCH (d:Dungeon), (z:Zone)
+WHERE d.name = "The Stockade" AND z.name = "Elwynn Forest"
+CREATE (d)-[rel:IS_INSIDE]->(z);
+MATCH (d:Dungeon), (z:Zone)
+WHERE d.name = "Blackfathom Deeps" AND z.name = "Ashenvale"
+CREATE (d)-[rel:IS_INSIDE]->(z);
+MATCH (d:Dungeon), (z:Zone)
+WHERE d.name = "Gnomeregan" AND z.name = "Dun Morogh"
+CREATE (d)-[rel:IS_INSIDE]->(z);
+MATCH (d:Dungeon), (z:Zone)
+WHERE d.name = "Razorfen Kraul" AND z.name = "The Barrens"
+CREATE (d)-[rel:IS_INSIDE]->(z);
+MATCH (d:Dungeon), (z:Zone)
+WHERE d.name = "Scarlet Monestary" AND z.name = "Tirisfal Glades"
+CREATE (d)-[rel:IS_INSIDE]->(z);
+MATCH (d:Dungeon), (z:Zone)
+WHERE d.name = "Razorfen Downs" AND z.name = "The Barrens"
+CREATE (d)-[rel:IS_INSIDE]->(z);
+MATCH (d:Dungeon), (z:Zone)
+WHERE d.name = "Uldaman" AND z.name = "Badlands"
+CREATE (d)-[rel:IS_INSIDE]->(z);
+MATCH (d:Dungeon), (z:Zone)
+WHERE d.name = "Zul'Farrak" AND z.name = "Tanaris"
+CREATE (d)-[rel:IS_INSIDE]->(z);
+MATCH (d:Dungeon), (z:Zone)
+WHERE d.name = "Mauradon" AND z.name = "Desolace"
+CREATE (d)-[rel:IS_INSIDE]->(z);
+MATCH (d:Dungeon), (z:Zone)
+WHERE d.name = "Sunken Temple" AND z.name = "Swamp of Sorrows"
+CREATE (d)-[rel:IS_INSIDE]->(z);
+MATCH (d:Dungeon), (z:Zone)
+WHERE d.name = "Blackrock Depths" AND z.name = "Blackrock Mountain"
+CREATE (d)-[rel:IS_INSIDE]->(z);
+MATCH (d:Dungeon), (z:Zone)
+WHERE d.name = "Upper Blackrock Spire" AND z.name = "Blackrock Mountain"
+CREATE (d)-[rel:IS_INSIDE]->(z);
+MATCH (d:Dungeon), (z:Zone)
+WHERE d.name = "Lower Blackrock Spire" AND z.name = "Blackrock Mountain"
+CREATE (d)-[rel:IS_INSIDE]->(z);
+MATCH (d:Dungeon), (z:Zone)
+WHERE d.name = "Scholomance" AND z.name = "Western Plaguelands"
+CREATE (d)-[rel:IS_INSIDE]->(z);
+MATCH (d:Dungeon), (z:Zone)
+WHERE d.name = "Stratholme" AND z.name = "Eastern Plaguelands"
+CREATE (d)-[rel:IS_INSIDE]->(z);
+MATCH (d:Dungeon), (z:Zone)
+WHERE d.name = "Dire Maul" AND z.name = "Feralas"
+CREATE (d)-[rel:IS_INSIDE]->(z);
+
+
+// Raids
+CREATE (:Raid { name: "Zul'Gurub" }),
+       (:Raid { name: "Onyxia's Lair" }),
+       (:Raid { name: "Molten Core" }),
+       (:Raid { name: "Blackwing Lair" }),
+       (:Raid { name: "Ruins of Ahn'Qiraj" }),
+       (:Raid { name: "Temple of Ahn'Qiraj" }),
+       (:Raid { name: "Naxxramas" });  
+
+// Raid-Zone relationships
+// TODO Eventually convert this to Raid-Area
+MATCH (r:Raid), (z:Zone)
+WHERE r.name = "Zul'Gurub" AND z.name = "Stranglethorn Vale"
+CREATE (r)-[rel:IS_INSIDE]->(z);
+MATCH (r:Raid), (z:Zone)
+WHERE r.name = "Onyxia's Lair" AND z.name = "Dustwallow Marsh"
+CREATE (r)-[rel:IS_INSIDE]->(z);
+MATCH (r:Raid), (z:Zone)
+WHERE r.name = "Molten Core" AND z.name = "Blackrock Mountain"
+CREATE (r)-[rel:IS_INSIDE]->(z);
+MATCH (r:Raid), (z:Zone)
+WHERE r.name = "Blackwing Lair" AND z.name = "Blackrock Mountain"
+CREATE (r)-[rel:IS_INSIDE]->(z);
+MATCH (r:Raid), (z:Zone)
+WHERE r.name = "Ruins of Ahn'Qiraj" AND z.name = "Silithus"
+CREATE (r)-[rel:IS_INSIDE]->(z);
+MATCH (r:Raid), (z:Zone)
+WHERE r.name = "Temple of Ahn'Qiraj" AND z.name = "Silithus"
+CREATE (r)-[rel:IS_INSIDE]->(z);
+MATCH (r:Raid), (z:Zone)
+WHERE r.name = "Naxxramas" AND z.name = "Eastern Plaguelands"
+CREATE (r)-[rel:IS_INSIDE]->(z);
