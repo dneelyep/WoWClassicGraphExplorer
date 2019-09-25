@@ -31,7 +31,7 @@ CREATE (:Zone { name: "Teldrassil"}),
        (:Zone { name: "Arathi Highlands"}),
        (:Zone { name: "Wetlands"}),
        (:Zone { name: "Dun Morogh"}),
-       (:Zone { name: "Loch MOdan"}),
+       (:Zone { name: "Loch Modan"}),
        (:Zone { name: "Badlands"}),
        (:Zone { name: "Searing Gorge"}),
        (:Zone { name: "Burning Steppes"}),
@@ -581,6 +581,14 @@ MATCH (a:Zone), (b:Zone)
 WHERE a.name = "Western Plaguelands" AND b.name = "Eastern Plaguelands"
 CREATE (a)-[adj:IS_ADJACENT_TO]->(b),
        (a)<-[rel:IS_ADJACENT_TO]-(b);
+MATCH (a:Zone), (b:Zone)
+WHERE a.name = "Blackrock Mountain" AND b.name = "Searing Gorge"
+CREATE (a)-[adj:IS_ADJACENT_TO]->(b),
+       (a)<-[rel:IS_ADJACENT_TO]-(b);
+MATCH (a:Zone), (b:Zone)
+WHERE a.name = "Blackrock Mountain" AND b.name = "Burning Steppes"
+CREATE (a)-[adj:IS_ADJACENT_TO]->(b),
+       (a)<-[rel:IS_ADJACENT_TO]-(b);
 
 // Zeppelin Paths
 // TODO Finish this up
@@ -736,3 +744,31 @@ CREATE (r)-[rel:IS_INSIDE]->(z);
 MATCH (r:Raid), (z:Zone)
 WHERE r.name = "Naxxramas" AND z.name = "Eastern Plaguelands"
 CREATE (r)-[rel:IS_INSIDE]->(z);
+
+
+
+// Flight Paths
+MATCH (a:NPC), (b:NPC)
+WHERE a.name = "Doras" AND b.name = "Vhulgra"
+CREATE (a)-[x:FLIGHT_PATH]->(b),
+       (b)-[y:FLIGHT_PATH]->(a);
+MATCH (a:NPC), (b:NPC)
+WHERE a.name = "Doras" AND b.name = "Devrak"
+CREATE (a)-[x:FLIGHT_PATH]->(b),
+       (b)-[y:FLIGHT_PATH]->(a);
+MATCH (a:NPC), (b:NPC)
+WHERE a.name = "Doras" AND b.name = "Tal"
+CREATE (a)-[x:FLIGHT_PATH]->(b),
+       (b)-[y:FLIGHT_PATH]->(a);
+MATCH (a:NPC), (b:NPC)
+WHERE a.name = "Devrak" AND b.name = "Bragok"
+CREATE (a)-[x:FLIGHT_PATH]->(b),
+       (b)-[y:FLIGHT_PATH]->(a);
+MATCH (a:NPC), (b:NPC)
+WHERE a.name = "Devrak" AND b.name = "Omusa Thunderhorn"
+CREATE (a)-[x:FLIGHT_PATH]->(b),
+       (b)-[y:FLIGHT_PATH]->(a);
+MATCH (a:NPC), (b:NPC)
+WHERE a.name = "Devrak" AND b.name = "Nyse"
+CREATE (a)-[x:FLIGHT_PATH]->(b),
+       (b)-[y:FLIGHT_PATH]->(a);
